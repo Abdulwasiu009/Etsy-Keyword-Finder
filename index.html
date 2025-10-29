@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Etsy Keyword Finder — Tool</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <h1>Etsy Keyword Finder</h1>
+      <p class="tagline">Generate high-converting Etsy keywords, long-tail phrases, tags & title ideas — export & copy instantly.</p>
+    </div>
+    <div class="actions">
+      <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </div>
+
+  <main class="main">
+    <section class="panel">
+      <form id="seedForm" class="form" onsubmit="return false;">
+        <div class="row">
+          <label for="seed">Seed keyword</label>
+          <input id="seed" type="search" placeholder="e.g. soy candles, resin jewelry, knitted beanie" required />
+        </div>
+
+        <div class="row options">
+          <label for="category">Category (optional)</label>
+          <select id="category">
+            <option value="">Auto / All categories</option>
+            <option>Home & Living</option>
+            <option>Jewelry</option>
+            <option>Clothing</option>
+            <option>Art & Collectibles</option>
+            <option>Wedding</option>
+            <option>Kids & Baby</option>
+            <option>Craft Supplies</option>
+          </select>
+
+          <label for="count">Suggestions</label>
+          <input id="count" type="number" min="10" max="500" value="120" />
+        </div>
+
+        <div class="row controls">
+          <button id="generateBtn" class="btn primary">Generate Keywords</button>
+          <button id="clearBtn" class="btn ghost">Clear</button>
+          <div class="mini">
+            <button id="copyAllBtn" class="btn small">Copy All</button>
+            <button id="exportCsvBtn" class="btn small ghost">Export CSV</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel results">
+      <div class="results-header">
+        <div>
+          <h2 id="resultsTitle">Suggestions</h2>
+          <p id="resultsSub" class="muted">No results yet — enter a seed keyword and click Generate.</p>
+        </div>
+
+        <div class="results-controls">
+          <label>Sort</label>
+          <select id="sortSelect">
+            <option value="score-desc">Opportunity (high → low)</option>
+            <option value="score-asc">Opportunity (low → high)</option>
+            <option value="length-asc">Short → Long</option>
+            <option value="length-desc">Long → Short</option>
+          </select>
+          <label>Filter</label>
+          <input id="filterInput" placeholder="filter, e.g. 'rose' or 'gift'"/>
+        </div>
+      </div>
+
+      <div id="stats" class="stats hidden">
+        <div><strong id="statCount">0</strong> keywords</div>
+        <div>Top suggestion: <strong id="topSuggestion">—</strong></div>
+      </div>
+
+      <div id="list" class="list"></div>
+    </section>
+
+    <aside class="panel sidebar">
+      <h3>Title Ideas</h3>
+      <div id="titleIdeas" class="note">No data yet</div>
+
+      <h3>Suggested Tags</h3>
+      <div id="tags" class="tags">—</div>
+
+      <h3>How it works</h3>
+      <div class="note small">
+        This tool generates keyword suggestions using proven patterns: modifiers, attributes, materials, and intent words.
+        For accurate search volume & competition, connect a keyword API.
+      </div>
+
+      <div class="support">
+        <a href="https://bit.ly/Multiple_Task" target="_blank" class="cta">Want Etsy SEO help?</a>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <small>Built by Abdul — tools for Etsy sellers. Export CSV, copy tags, and use smart filters to pick winners.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
